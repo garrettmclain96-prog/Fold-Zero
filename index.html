@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#05090D" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="FOLD ZERO" />
+  <meta name="description" content="FOLD ZERO — Reality Evolution Engine" />
+  <title>FOLD ZERO — Reality Evolution Engine</title>
+  
+  
+  
+  <style>
+:root{--bg:#05090d;--panel:#091117;--panel2:#0c171e;--line:#18313a;--text:#edf7f5;--muted:#78929a;--cyan:#55f2d0;--lime:#b6ff4a;--red:#ff5c67;--amber:#ffbd59;--blue:#71a6ff;--mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;--sans:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--shadow:0 0 30px rgba(85,242,208,.08)}*{box-sizing:border-box}html{background:var(--bg);color:var(--text);font-family:var(--sans);scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(circle at 70% 0%,rgba(85,242,208,.04),transparent 34%),linear-gradient(180deg,#05090d,#04080b 65%);overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(85,242,208,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(85,242,208,.025) 1px,transparent 1px);background-size:40px 40px;mask-image:linear-gradient(to bottom,#000,transparent 90%);z-index:-1}.noise{position:fixed;inset:0;pointer-events:none;opacity:.025;z-index:20;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}.topbar{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 24px;gap:28px;position:sticky;top:0;background:rgba(5,9,13,.92);backdrop-filter:blur(16px);z-index:15}.brand{background:none;border:0;color:var(--text);display:flex;align-items:center;gap:11px;cursor:pointer;padding:0;text-align:left}.brand strong{display:block;font-size:16px;letter-spacing:.16em}.brand small{display:block;font:9px var(--mono);color:var(--muted);letter-spacing:.14em;margin-top:4px}.brand-mark{width:30px;height:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:3px;transform:skew(-8deg)}.brand-mark i{display:block;background:var(--cyan);box-shadow:0 0 12px rgba(85,242,208,.35)}.brand-mark i:nth-child(2){height:65%;align-self:end}.brand-mark i:nth-child(3){height:38%;align-self:center;background:var(--lime)}.statusline{font:10px var(--mono);color:var(--muted);letter-spacing:.1em;display:flex;align-items:center;gap:8px;flex:1}.divider{opacity:.4}.led{width:7px;height:7px;border-radius:50%;display:inline-block;background:#496069}.led.live{background:var(--lime);box-shadow:0 0 10px var(--lime)}.top-actions{display:flex;gap:8px}.ghost,.signal,.primary,.danger-outline,.sourceBtn{font:11px var(--mono);letter-spacing:.08em;border:1px solid var(--line);background:#071016;color:var(--text);padding:10px 14px;cursor:pointer;transition:.18s ease;border-radius:6px}.ghost:hover,.sourceBtn:hover{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 0 1px rgba(85,242,208,.1)}.small{padding:8px 10px;font-size:9px}.primary{background:var(--cyan);border-color:var(--cyan);color:#00110e;font-weight:900;box-shadow:0 0 24px rgba(85,242,208,.15)}.primary:hover{filter:brightness(1.08);box-shadow:0 0 30px rgba(85,242,208,.25)}.primary:disabled{opacity:.28;cursor:not-allowed;box-shadow:none}.primary.big{font-size:12px;padding:14px 18px}.primary.full{width:100%}.signal{border-color:var(--lime);color:var(--lime);background:rgba(182,255,74,.03)}.danger-outline{border-color:rgba(255,92,103,.55);color:var(--red);background:rgba(255,92,103,.03)}.desktop-nav{height:46px;display:flex;padding:0 24px;border-bottom:1px solid var(--line);position:sticky;top:72px;background:rgba(5,9,13,.94);z-index:14}.navbtn{border:0;border-right:1px solid var(--line);background:transparent;color:#69838b;font:10px var(--mono);letter-spacing:.08em;padding:0 20px;cursor:pointer}.navbtn:first-child{border-left:1px solid var(--line)}.navbtn.active{color:var(--cyan);background:rgba(85,242,208,.045);box-shadow:inset 0 -2px var(--cyan)}.page{display:none;max-width:1500px;margin:0 auto;padding:34px 28px 110px}.page.active{display:block}.hero-grid{display:grid;grid-template-columns:.9fr 1.35fr;gap:42px;align-items:center;min-height:590px}.eyebrow{font:10px var(--mono);letter-spacing:.17em;color:var(--cyan);margin-bottom:14px}.hero-copy h1,.page-head h1{font-size:clamp(46px,6vw,92px);line-height:.87;margin:0;letter-spacing:-.055em;text-transform:uppercase}.hero-copy h1 em,.page-head h1 em{font-style:normal;color:var(--cyan);text-shadow:0 0 32px rgba(85,242,208,.1)}.hero-copy p,.page-head p{color:#91a9af;line-height:1.65;max-width:680px;font-size:15px}.metric-row{display:flex;gap:1px;margin-top:34px}.metric-row>div{border:1px solid var(--line);padding:14px 18px;min-width:105px;background:rgba(7,16,22,.7)}.metric-row span{display:block;font:26px var(--mono);color:var(--lime)}.metric-row small{font:8px var(--mono);letter-spacing:.18em;color:var(--muted)}.reactor-shell{border:1px solid #1b3d46;background:#061016;box-shadow:var(--shadow);position:relative;overflow:hidden;border-radius:8px}.reactor-shell.black-swan{animation:distort .7s steps(2)}@keyframes distort{0%{filter:none;transform:none}20%{filter:hue-rotate(80deg) contrast(1.4);transform:translateX(3px)}40%{filter:invert(.15);transform:translateX(-4px) skewX(1deg)}60%{filter:hue-rotate(-60deg);transform:translateX(2px)}100%{filter:none;transform:none}}.reactor-header{height:38px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 13px;font:8px var(--mono);letter-spacing:.13em;color:#6f929a}.reactor-core{height:405px;position:relative;overflow:hidden;background:radial-gradient(circle at center,rgba(85,242,208,.1) 0,rgba(85,242,208,.025) 22%,transparent 48%),linear-gradient(rgba(85,242,208,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(85,242,208,.025) 1px,transparent 1px);background-size:auto,26px 26px,26px 26px}.reactor-core:after{content:"";position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);box-shadow:0 0 18px var(--cyan);animation:scan 4.5s linear infinite;opacity:.55}@keyframes scan{from{top:0}to{top:100%}}.scope-lines{position:absolute;inset:0;background:repeating-radial-gradient(circle at center,transparent 0,transparent 38px,rgba(85,242,208,.04) 39px,transparent 40px)}.crosshair{position:absolute;background:rgba(85,242,208,.14)}.crosshair.h{height:1px;left:7%;right:7%;top:50%}.crosshair.v{width:1px;top:7%;bottom:7%;left:50%}.ring{position:absolute;left:50%;top:50%;border:1px solid rgba(85,242,208,.21);border-radius:50%;transform:translate(-50%,-50%);animation:spin 15s linear infinite}.r1{width:290px;height:290px;border-style:dashed}.r2{width:220px;height:220px;animation-direction:reverse;animation-duration:11s}.r3{width:145px;height:145px;border-color:rgba(182,255,74,.3)}@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}.core-orb{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:98px;height:98px;border:1px solid var(--cyan);border-radius:50%;display:grid;place-items:center;text-align:center;background:#061116;box-shadow:0 0 42px rgba(85,242,208,.16),inset 0 0 22px rgba(85,242,208,.08);z-index:3}.core-orb span{font:28px var(--mono);color:var(--cyan);position:absolute;top:20px}.core-orb small{font:6px var(--mono);letter-spacing:.12em;color:#66878d;position:absolute;bottom:18px}.reactor-atom{position:absolute;max-width:165px;border:1px solid #28515b;background:rgba(6,16,22,.91);padding:7px 9px;font:8px var(--mono);letter-spacing:.04em;color:#d6e9e5;box-shadow:0 0 18px rgba(85,242,208,.06);z-index:5;border-radius:4px}.reactor-atom b{display:block;color:var(--cyan);font-size:7px;margin-bottom:4px}.reactor-atom.external{border-color:rgba(182,255,74,.5)}.reactor-atom.exploratory{border-color:rgba(255,189,89,.5);color:#ffdca3}.input-console{border-top:1px solid var(--line);padding:14px;background:#071016}.input-line{display:grid;grid-template-columns:150px 1fr auto;gap:8px}.input-line input,.input-line select,.source-controls input,.reality-budget input,.reality-budget select,.atom-toolbar input,.atom-toolbar select,textarea,.field-input{background:#03090d;border:1px solid #17313a;color:var(--text);padding:12px;font:11px var(--mono);border-radius:5px;outline:none}.input-line input:focus,.input-line select:focus,.source-controls input:focus,.reality-budget input:focus,.reality-budget select:focus,.atom-toolbar input:focus,.atom-toolbar select:focus,textarea:focus,.field-input:focus{border-color:var(--cyan);box-shadow:0 0 0 1px rgba(85,242,208,.1)}.console-actions{display:flex;justify-content:space-between;margin-top:10px}.panel{border:1px solid var(--line);background:linear-gradient(180deg,rgba(9,17,23,.96),rgba(6,13,18,.96));margin-top:22px;padding:22px;border-radius:8px;box-shadow:0 14px 40px rgba(0,0,0,.18)}.panel-head,.page-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.panel-head h2{font-size:25px;letter-spacing:-.03em;margin:0;text-transform:uppercase}.page-head{margin:28px 0 22px}.page-head h1{font-size:clamp(42px,5vw,72px)}.badge{font:8px var(--mono);letter-spacing:.1em;border:1px solid currentColor;padding:7px 9px;border-radius:4px;white-space:nowrap}.badge.cyan{color:var(--cyan)}.badge.lime{color:var(--lime)}.badge.red{color:var(--red)}.badge.amber{color:var(--amber)}.muted{color:var(--muted);line-height:1.6}.reality-budget{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:18px 0}.reality-budget.compact{grid-template-columns:1fr 1fr}.reality-budget label{font:8px var(--mono);color:#7e989e;letter-spacing:.1em}.reality-budget input,.reality-budget select{width:100%;margin-top:7px}.zero-actions{display:flex;gap:8px}.zero-output{margin-top:18px;border-top:1px solid var(--line);padding-top:18px}.source-controls{display:grid;grid-template-columns:1fr repeat(4,auto);gap:7px}.source-feed{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:14px}.source-card{border:1px solid #18313a;background:#061016;padding:12px;border-radius:5px;position:relative}.source-card h4{margin:4px 0 8px;font-size:13px}.source-card p{font-size:11px;line-height:1.55;color:#8da4aa;margin:0 0 8px}.source-card .source-meta{font:8px var(--mono);color:var(--lime);letter-spacing:.06em}.source-card button{position:absolute;right:8px;top:8px}.source-legend{display:flex;gap:18px;margin-top:13px;font:8px var(--mono);color:#708a91}.dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:5px}.dot.evidence{background:var(--lime)}.dot.synth{background:var(--cyan)}.dot.explore{background:var(--amber)}.concept-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.concept-card{border:1px solid #1d3b44;background:#071117;padding:16px;border-radius:7px;position:relative;overflow:hidden}.concept-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--cyan)}.concept-card h3{margin:6px 0 8px;font-size:21px}.concept-card .premise{color:#c4d8d4;font-size:13px;line-height:1.5}.concept-card dl{margin:14px 0;font-size:11px}.concept-card dt{font:8px var(--mono);color:#6f8d94;letter-spacing:.1em;margin-top:9px}.concept-card dd{margin:4px 0;line-height:1.5;color:#aac0c5}.meter{margin:8px 0}.meter-top{display:flex;justify-content:space-between;font:8px var(--mono);color:#78929a}.meter-bar{height:4px;background:#10242b;margin-top:5px}.meter-bar i{display:block;height:100%;background:var(--cyan);box-shadow:0 0 8px rgba(85,242,208,.25)}.meter.danger .meter-bar i{background:var(--red)}.meter.lime .meter-bar i{background:var(--lime)}.lineage{display:flex;flex-wrap:wrap;gap:5px;margin:12px 0}.chip{font:7px var(--mono);border:1px solid #21424b;color:#80a1a8;padding:5px 6px;border-radius:3px}.attack-board{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.adversary{border:1px solid rgba(255,92,103,.26);background:rgba(255,92,103,.025);padding:13px;border-radius:6px}.adversary b{font:9px var(--mono);color:var(--red);letter-spacing:.07em}.adversary p{font-size:11px;line-height:1.5;color:#b8c8ca}.attack-summary{display:grid;grid-template-columns:1fr 1fr 1fr .75fr;gap:10px;margin-top:12px}.attack-summary>div{border:1px solid #18313a;background:#061016;padding:13px;border-radius:5px}.attack-summary h4{font:8px var(--mono);letter-spacing:.1em;color:#769096;margin:0 0 8px}.attack-summary ul{padding-left:17px;font-size:11px;color:#a9bec2;line-height:1.5;margin:0}.survival{display:flex;align-items:center;justify-content:center;flex-direction:column}.survival strong{font:42px var(--mono);color:var(--lime)}.verdict-bar{margin-top:12px;display:flex;gap:7px;align-items:center;border-top:1px solid var(--line);padding-top:13px}.verdict-bar strong{font:11px var(--mono);margin-right:auto}.verdict-btn{padding:9px 12px;border:1px solid var(--line);background:#071016;color:#9db3b7;font:9px var(--mono);cursor:pointer;border-radius:4px}.verdict-btn.kill:hover{border-color:var(--red);color:var(--red)}.verdict-btn.mutate:hover{border-color:var(--amber);color:var(--amber)}.verdict-btn.spawn:hover{border-color:var(--lime);color:var(--lime)}.experiment-form{display:grid;grid-template-columns:1fr 1fr;gap:9px}.experiment-form label{font:8px var(--mono);color:#78939a;letter-spacing:.07em}.experiment-form input,.experiment-form textarea,.experiment-form select{width:100%;margin-top:6px}.experiment-form .wide{grid-column:1/-1}.prove-layout{display:grid;grid-template-columns:.85fr 1.4fr;gap:16px}.prove-output{margin-top:0}.empty-state{font:10px var(--mono);letter-spacing:.1em;color:#607b82;text-align:center;padding:60px 16px}.kill-tests{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.kill-test{border:1px solid var(--line);padding:12px}.kill-test b{display:block;font:9px var(--mono);color:var(--lime);margin-bottom:8px}.hard-kill{border:1px solid var(--lime);box-shadow:0 0 28px rgba(182,255,74,.12);padding:12px;text-align:center;font:12px var(--mono);color:var(--lime);letter-spacing:.14em;margin-top:12px}.legend{display:flex;gap:13px;font:8px var(--mono);letter-spacing:.08em}.cyan-t{color:var(--cyan)}.green-t{color:var(--lime)}.red-t{color:var(--red)}.amber-t{color:var(--amber)}.evolution-wrap{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:12px;padding:12px}.evolution-wrap svg{width:100%;min-height:560px;background:radial-gradient(circle at center,rgba(85,242,208,.025),transparent 55%),linear-gradient(rgba(85,242,208,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(85,242,208,.02) 1px,transparent 1px);background-size:auto,24px 24px,24px 24px;border:1px solid #132a31}.node-inspector{border:1px solid #132a31;padding:13px;background:#061016}.node-inspector h3{margin-top:0}.node-inspector pre{white-space:pre-wrap;font:9px var(--mono);color:#86a1a7}.gene-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.gene{border:1px solid #1c3a42;padding:12px}.gene b{display:block;color:var(--lime);font:10px var(--mono);margin-bottom:6px}.gene small{color:#7f969c}.atom-toolbar{display:grid;grid-template-columns:1fr 220px;gap:8px;margin-bottom:12px}.atom-library{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.atom-card{border:1px solid #18323a;background:#061016;padding:13px;position:relative;border-radius:5px}.atom-card.pinned{border-color:rgba(182,255,74,.45)}.atom-card h3{font-size:14px;margin:4px 0 8px;padding-right:60px}.atom-card p{font-size:10px;color:#8ca4aa;line-height:1.5}.atom-card .entropy{font:9px var(--mono);color:var(--amber)}.atom-actions{display:flex;gap:5px;position:absolute;right:8px;top:8px}.icon-btn{border:1px solid #24434a;background:#071117;color:#8ca4aa;font:9px var(--mono);padding:5px 6px;cursor:pointer}.extinction-row{border-bottom:1px solid #142b32;padding:11px 0;display:grid;grid-template-columns:1fr 160px;gap:10px}.extinction-row:last-child{border:0}.extinction-row h4{margin:0 0 4px;font-size:12px}.extinction-row p{font-size:10px;color:#849da3;margin:0}.experiment-ledger{display:grid;gap:10px}.experiment-card{border:1px solid #19343c;background:#061016;padding:15px;border-radius:6px}.experiment-head{display:flex;justify-content:space-between;gap:10px}.experiment-head h3{margin:0}.experiment-meta{font:8px var(--mono);color:#758f96}.experiment-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:13px}.experiment-grid>div{border:1px solid #142b32;padding:10px}.experiment-grid b{font:8px var(--mono);color:#718a91;display:block;margin-bottom:5px}.experiment-grid span{font-size:11px}.status-controls{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px}.status-controls button{font:8px var(--mono);border:1px solid #203e46;background:#071117;color:#89a2a7;padding:7px 8px;cursor:pointer}.status-controls button.active{border-color:var(--cyan);color:var(--cyan)}.toast{position:fixed;right:18px;bottom:22px;background:#071117;border:1px solid var(--cyan);color:var(--text);padding:11px 14px;font:10px var(--mono);z-index:50;opacity:0;transform:translateY(8px);pointer-events:none;transition:.2s}.toast.show{opacity:1;transform:none}.easter{position:fixed;inset:0;background:#effffb;color:#00100d;display:grid;place-items:center;font:clamp(18px,4vw,56px) var(--mono);letter-spacing:.04em;text-align:center;padding:30px;z-index:100;opacity:0;pointer-events:none;mix-blend-mode:screen}.easter.show{animation:easter 1.4s steps(2)}@keyframes easter{0%,100%{opacity:0}10%,70%{opacity:.92;filter:invert(.08)}30%{transform:translateX(6px)}50%{transform:translateX(-5px)}}.hidden{display:none!important}.field-label{font:9px var(--mono);color:#78939a;letter-spacing:.1em}.file-label{cursor:pointer}.mobile-nav{display:none}
+@media(max-width:980px){.statusline{display:none}.desktop-nav{display:none}.topbar{height:60px;padding:0 14px}.top-actions .small{padding:7px;font-size:8px}.page{padding:22px 12px 96px}.hero-grid{grid-template-columns:1fr;gap:20px;min-height:0}.hero-copy h1{font-size:58px}.reactor-core{height:370px}.source-controls{grid-template-columns:1fr 1fr}.source-controls input{grid-column:1/-1}.source-feed{grid-template-columns:1fr}.concept-grid{grid-template-columns:1fr}.attack-board{grid-template-columns:1fr}.attack-summary{grid-template-columns:1fr}.prove-layout{grid-template-columns:1fr}.experiment-form{grid-template-columns:1fr}.experiment-form .wide{grid-column:auto}.evolution-wrap{grid-template-columns:1fr}.node-inspector{min-height:160px}.gene-grid{grid-template-columns:1fr 1fr}.atom-library{grid-template-columns:1fr}.atom-toolbar{grid-template-columns:1fr}.experiment-grid{grid-template-columns:1fr}.page-head{flex-direction:column}.legend{flex-wrap:wrap}.mobile-nav{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;height:72px;padding-bottom:env(safe-area-inset-bottom);background:rgba(4,9,12,.97);border-top:1px solid #1a363e;z-index:30}.mobile-nav button{border:0;border-right:1px solid #122a31;background:transparent;color:#638087;display:grid;place-items:center;padding:8px 2px}.mobile-nav button.active{color:var(--cyan);background:rgba(85,242,208,.04)}.mobile-nav span{font-size:18px}.mobile-nav small{font:7px var(--mono)}.reality-budget{grid-template-columns:1fr}.zero-actions{flex-direction:column}.input-line{grid-template-columns:1fr}.console-actions{gap:7px}.console-actions button{flex:1}.kill-tests{grid-template-columns:1fr}.attack-panel{padding:14px}.hero-copy p{font-size:13px}.metric-row{overflow:auto}.metric-row>div{min-width:96px}.atom-card h3{padding-right:70px}}
+@media(max-width:560px){.brand small{display:none}.hero-copy h1{font-size:48px}.reactor-core{height:330px}.r1{width:240px;height:240px}.r2{width:184px;height:184px}.r3{width:125px;height:125px}.reactor-atom{max-width:125px;font-size:7px}.panel{padding:15px}.panel-head{flex-direction:column}.gene-grid{grid-template-columns:1fr}.source-controls{grid-template-columns:1fr}.source-controls input{grid-column:auto}.page-head h1{font-size:42px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+</style>
+<link rel="manifest" href="/manifest.webmanifest" />
+<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/icon.svg" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div id="easter" class="easter" aria-live="polite">REALITY IS ONLY A DATASET WITH BAD DOCUMENTATION.</div>
+
+  <header class="topbar">
+    <button id="brandBtn" class="brand" aria-label="FOLD ZERO home">
+      <span class="brand-mark"><i></i><i></i><i></i></span>
+      <span><strong>FOLD ZERO</strong><small>REALITY EVOLUTION ENGINE</small></span>
+    </button>
+    <div class="statusline">
+      <span class="led live"></span><span>ENGINE ONLINE</span>
+      <span class="divider">/</span><span id="clockLabel">LOCAL</span>
+      <span class="divider">/</span><span id="memoryLabel">GENOME 0</span>
+    </div>
+    <div class="top-actions">
+      <button id="exportBtn" class="ghost small">EXPORT</button>
+      <label class="ghost small file-label">IMPORT<input id="importFile" type="file" accept="application/json" hidden /></label>
+    </div>
+  </header>
+
+  <nav class="desktop-nav" aria-label="Primary">
+    <button data-route="reactor" class="navbtn active">01 / REACTOR</button>
+    <button data-route="prove" class="navbtn">02 / PROVE ME WRONG</button>
+    <button data-route="evolution" class="navbtn">03 / EVOLUTION</button>
+    <button data-route="atoms" class="navbtn">04 / ATOMS</button>
+    <button data-route="experiments" class="navbtn">05 / EXPERIMENTS</button>
+  </nav>
+
+  <main id="app">
+    <section id="page-reactor" class="page active">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="led live"></span> COLLISION WINDOW OPEN</div>
+          <h1>MAKE THE<br><em>NON-OBVIOUS</em><br>TESTABLE.</h1>
+          <p>Drop problems, mechanisms, behaviors, constraints, research, repos, and weird observations into the reactor. FOLD ZERO tries to kill what comes out before you waste time building it.</p>
+          <div class="metric-row">
+            <div><span id="atomCountHero">0</span><small>ATOMS</small></div>
+            <div><span id="experimentCountHero">0</span><small>EXPERIMENTS</small></div>
+            <div><span id="deadCountHero">0</span><small>EXTINCT</small></div>
+          </div>
+        </div>
+
+        <div class="reactor-shell" id="reactorShell">
+          <div class="reactor-header">
+            <span>FZ-RCTR / CHAMBER 01</span><span id="reactorStatus">SIGNAL ACQUIRED</span>
+          </div>
+          <div class="reactor-core" id="reactorCore">
+            <div class="scope-lines"></div>
+            <div class="crosshair h"></div><div class="crosshair v"></div>
+            <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+            <div class="core-orb"><span>FZ</span><small>REALITY<br>REACTOR</small></div>
+            <div id="reactorAtoms" class="reactor-atoms"></div>
+          </div>
+          <div class="input-console">
+            <div class="input-line">
+              <select id="atomType" aria-label="Atom type">
+                <option>Problem</option><option>Technology</option><option>Human Behavior</option><option>Constraint</option><option>Trend</option><option>Environment</option><option>Repository</option><option>Research</option><option>Wildcard</option>
+              </select>
+              <input id="atomInput" autocomplete="off" placeholder="DROP ANYTHING INTO THE REACTOR" />
+              <button id="addAtomBtn" class="signal">LOCK ATOM</button>
+            </div>
+            <div class="console-actions">
+              <button id="blackSwanBtn" class="danger-outline">◈ BLACK SWAN</button>
+              <button id="collideBtn" class="primary">COLLIDE <span>↯</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="panel zero-origin-panel">
+        <div class="panel-head">
+          <div><div class="eyebrow">AUTONOMOUS EXPEDITION</div><h2>ZERO ORIGIN</h2></div>
+          <span class="badge lime">NO IDEA REQUIRED</span>
+        </div>
+        <p class="muted">Start with nothing. Pull live signals, search for contradictions and negative space, attack the candidate, and return one experiment worth testing.</p>
+        <div class="reality-budget">
+          <label>REALITY BUDGET $<input id="realityBudget" type="number" min="0" value="100" /></label>
+          <label>TIME CAP <select id="timeBudget"><option>1 hour</option><option selected>48 hours</option><option>7 days</option></select></label>
+          <label>SEARCH RADIUS <select id="searchRadius"><option>near-domain</option><option selected>cross-domain</option><option>black-swan</option></select></label>
+        </div>
+        <div class="zero-actions">
+          <button id="acquireSignalsBtn" class="ghost">ACQUIRE LIVE SIGNALS</button>
+          <button id="zeroOriginBtn" class="primary big">FIND SOMETHING THAT SHOULD EXIST</button>
+        </div>
+        <div id="zeroOriginOutput" class="zero-output hidden"></div>
+      </section>
+
+      <section class="panel sensorium-panel">
+        <div class="panel-head">
+          <div><div class="eyebrow">01 / SENSORIUM</div><h2>LIVE SOURCE INTAKE</h2></div>
+          <span id="sensoriumState" class="badge cyan">CONNECTOR READY</span>
+        </div>
+        <div class="source-controls">
+          <input id="sourceQuery" value="automation failure sensor" placeholder="signal query" />
+          <button class="sourceBtn" data-source="github">GITHUB</button>
+          <button class="sourceBtn" data-source="openalex">OPENALEX</button>
+          <button class="sourceBtn" data-source="fedreg">FEDERAL REGISTER</button>
+          <button class="sourceBtn" data-source="cfpb">CFPB COMPLAINTS</button>
+        </div>
+        <div class="source-legend"><span><b class="dot evidence"></b> EXTERNAL EVIDENCE</span><span><b class="dot synth"></b> LOCAL SYNTHESIS</span><span><b class="dot explore"></b> EXPLORATORY</span></div>
+        <div id="sourceFeed" class="source-feed"></div>
+      </section>
+
+      <section id="collisionSection" class="panel collision-panel hidden">
+        <div class="panel-head"><div><div class="eyebrow">02 / COLLIDER</div><h2>COLLISION SURVIVORS</h2></div><span class="badge cyan">LOCAL SYNTHESIS / NOT VERIFIED</span></div>
+        <div id="conceptGrid" class="concept-grid"></div>
+      </section>
+
+      <section id="attackSection" class="panel attack-panel hidden">
+        <div class="panel-head"><div><div class="eyebrow">03 / TRIBUNAL</div><h2 id="attackTitle">HOSTILE REVIEW</h2></div><span class="badge red">REALITY CHECK</span></div>
+        <div id="attackContent"></div>
+      </section>
+    </section>
+
+    <section id="page-prove" class="page">
+      <div class="page-head"><div><div class="eyebrow">02 / PROVE ME WRONG</div><h1>BRING YOUR FAVORITE IDEA.<br><em>WE'LL TRY TO KILL IT.</em></h1></div><span class="badge red">NO FLATTERY MODE</span></div>
+      <div class="prove-layout">
+        <section class="panel">
+          <label class="field-label">CHERISHED IDEA</label>
+          <textarea id="proveIdea" rows="7" placeholder="Describe the idea you are most convinced is brilliant..."></textarea>
+          <div class="reality-budget compact"><label>MAX TEST BUDGET $<input id="proveBudget" type="number" value="100" /></label><label>MAX TIME<select id="proveTime"><option>10 minutes</option><option>1 hour</option><option selected>48 hours</option></select></label></div>
+          <button id="proveBtn" class="primary big full">PROVE ME WRONG</button>
+        </section>
+        <section id="proveOutput" class="panel prove-output"><div class="empty-state">HOSTILE BOARD STANDING BY.</div></section>
+      </div>
+    </section>
+
+    <section id="page-evolution" class="page">
+      <div class="page-head"><div><div class="eyebrow">03 / GENOME</div><h1>EVOLUTION MAP</h1><p>What reality killed. What survived. What mutated.</p></div><div class="legend"><span class="cyan-t">● ACTIVE</span><span class="green-t">● SURVIVED</span><span class="red-t">● KILLED</span><span class="amber-t">● MUTATED</span></div></div>
+      <section class="panel evolution-wrap"><svg id="evolutionSvg" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMin meet"></svg><div id="nodeInspector" class="node-inspector"><div class="empty-state">SELECT A NODE TO INSPECT LINEAGE.</div></div></section>
+      <section class="panel genes-panel"><div class="panel-head"><div><div class="eyebrow">MECHANISM DNA</div><h2>REUSABLE GENES</h2></div></div><div id="geneGrid" class="gene-grid"></div></section>
+    </section>
+
+    <section id="page-atoms" class="page">
+      <div class="page-head"><div><div class="eyebrow">04 / SENSORIUM MEMORY</div><h1>ATOM LIBRARY</h1></div><span id="atomCountBadge" class="badge cyan">0 ATOMS</span></div>
+      <section class="panel">
+        <div class="atom-toolbar"><input id="atomFilter" placeholder="filter atoms / tags / sources" /><select id="atomSourceFilter"><option value="all">ALL SOURCES</option><option>User Observation</option><option>Web Signal</option><option>GitHub Repository</option><option>Research Paper</option><option>Regulation</option><option>Customer Complaint</option><option>Dataset</option><option>Local Constraint</option><option>Exploratory</option></select></div>
+        <div id="atomLibrary" class="atom-library"></div>
+      </section>
+      <section class="panel extinction-panel"><div class="panel-head"><div><div class="eyebrow">EXTINCTION MEMORY</div><h2>DEAD IDEAS / REJECTED ASSUMPTIONS</h2></div><span class="badge red">DO NOT REBUILD BLINDLY</span></div><div id="extinctionList"></div></section>
+    </section>
+
+    <section id="page-experiments" class="page">
+      <div class="page-head"><div><div class="eyebrow">05 / FORGE</div><h1>EXPERIMENT LEDGER</h1><p>The memory of what reality actually said.</p></div><span id="experimentCountBadge" class="badge lime">0 EXPERIMENTS</span></div>
+      <section class="panel"><div id="experimentLedger" class="experiment-ledger"></div></section>
+    </section>
+  </main>
+
+  <nav class="mobile-nav" aria-label="Mobile primary">
+    <button data-route="reactor" class="active"><span>◉</span><small>REACTOR</small></button>
+    <button data-route="prove"><span>⊘</span><small>ATTACK</small></button>
+    <button data-route="evolution"><span>⌁</span><small>EVOLVE</small></button>
+    <button data-route="atoms"><span>◇</span><small>ATOMS</small></button>
+    <button data-route="experiments"><span>▣</span><small>TESTS</small></button>
+  </nav>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script>
+const FZ = (() => {
+  const KEY = 'foldzero.state.v2';
+  const uid = (p='id') => `${p}_${Date.now().toString(36)}_${Math.random().toString(36).slice(2,8)}`;
+  const clamp=(n,a=0,b=100)=>Math.max(a,Math.min(b,n));
+  const now=()=>new Date().toISOString();
+  const esc=(s='')=>String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+  const words=s=>String(s||'').toLowerCase().replace(/[^a-z0-9\s-]/g,' ').split(/\s+/).filter(w=>w.length>3);
+  const jaccard=(a,b)=>{const A=new Set(words(a)),B=new Set(words(b)); if(!A.size&&!B.size)return 0; const i=[...A].filter(x=>B.has(x)).length,u=new Set([...A,...B]).size; return i/u;};
+  const rnd=n=>Math.floor(Math.random()*n);
+
+  const baseAtoms=[
+    ['Problem','hotel towels disappear','Properties lose linen but per-item tracking is expensive and adversarial.','User Observation','',45],
+    ['Technology','ultra-wideband indoor positioning','Room-scale presence and ranging can be inferred with UWB-capable devices and anchors.','User Observation','',63],
+    ['Human Behavior','guests hate deposits','Blanket deposits create friction even when most stays are uneventful.','User Observation','',52],
+    ['Environment','laundry machines already have vibration','Washers and dryers continuously produce machine-state vibration that can be measured without modifying textiles.','User Observation','',78]
+  ].map(([type,title,description,sourceType,sourceUrl,entropy])=>({id:uid('atom'),type,title,description,sourceType,sourceUrl,tags:['demo'],pinned:true,entropy,provenance:'user',createdAt:now()}));
+
+  const initialState=()=>({
+    version:2,
+    atoms:baseAtoms,
+    collisions:[],concepts:[],attacks:[],experiments:[],nodes:[],genes:[],extinctions:[],
+    ui:{route:'reactor',selectedConceptId:null,selectedNodeId:null},
+    settings:{realityBudget:100,timeBudget:'48 hours',searchRadius:'cross-domain'}
+  });
+
+  let state;
+  try{state=JSON.parse(localStorage.getItem(KEY))||initialState()}catch{state=initialState()}
+  if(!state.atoms?.length) state=initialState();
+
+  function save(){localStorage.setItem(KEY,JSON.stringify(state)); renderCounters();}
+  function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove('show'),2200)}
+
+  function route(name){state.ui.route=name;document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(`page-${name}`).classList.add('active');document.querySelectorAll('[data-route]').forEach(b=>b.classList.toggle('active',b.dataset.route===name));if(name==='evolution')renderEvolution();if(name==='atoms')renderAtoms();if(name==='experiments')renderExperiments();save();window.scrollTo({top:0,behavior:'smooth'})}
+
+  function atomProvenance(atom){if(atom.provenance==='external')return 'external';if(atom.provenance==='exploratory')return 'exploratory';return ''}
+
+  function renderReactor(){
+    const wrap=document.getElementById('reactorAtoms');wrap.innerHTML='';
+    const display=state.atoms.filter(a=>a.pinned).slice(-8);
+    const positions=[[8,14],[66,13],[6,66],[67,68],[39,5],[39,82],[3,41],[72,42]];
+    display.forEach((a,i)=>{const el=document.createElement('div');el.className=`reactor-atom ${atomProvenance(a)}`;el.style.left=positions[i%positions.length][0]+'%';el.style.top=positions[i%positions.length][1]+'%';el.innerHTML=`<b>${esc(a.type.toUpperCase())} / E${a.entropy}</b>${esc(a.title)}`;el.title=a.description||'';wrap.appendChild(el)});
+    document.getElementById('collideBtn').disabled=display.length<2;
+  }
+
+  function addAtom(data){
+    const atom={id:uid('atom'),type:data.type||'Problem',title:data.title.trim(),description:data.description||'',sourceType:data.sourceType||'User Observation',sourceUrl:data.sourceUrl||'',tags:data.tags||[],pinned:data.pinned!==false,entropy:data.entropy??clamp(35+rnd(60)),provenance:data.provenance||'user',createdAt:now(),sourceMeta:data.sourceMeta||{}};
+    if(!atom.title)return null;state.atoms.push(atom);save();renderReactor();renderAtoms();return atom;
+  }
+
+  const demoConcepts=()=>[
+    {name:'Invisible Linen Accountability',premise:'Infer room-level linen loss without tagging every towel.',mechanism:'Fuse room-presence events, aggregate laundry vibration signatures, housekeeping reconciliation, and a frictionless post-stay exception workflow. The system estimates where the inventory balance diverged, then asks for human confirmation only on anomalous stays.',whyNow:'Commodity sensing and event-stream tooling make inference cheaper than per-item hardware.',audience:'Hotels, resorts, laundries, housekeeping operators',wedge:'Independent hotels and resorts with recurring linen shrinkage',strangeness:82,buildability:71,evidenceDebt:68,genes:['ambient inference','exception-only review','reconciliation loop','frictionless accountability']},
+    {name:'Depositless Trust Buffer',premise:'Replace blanket damage deposits with a reversible evidence window that escalates only when independent signals disagree.',mechanism:'Create a time-bounded post-stay reconciliation buffer. Housekeeping events, room telemetry, guest reports, and inventory variance must converge before any escalation. Most guests experience no hold at all.',whyNow:'Payment rails support delayed/reversible workflows while operational systems produce more independent evidence.',audience:'Hospitality operators and marketplaces',wedge:'Properties losing conversion because of deposits',strangeness:69,buildability:78,evidenceDebt:61,genes:['reversible buffer','multi-signal consensus','exception-only review']},
+    {name:'Laundry Pulse Mesh',premise:'Turn ordinary machine vibration into a distributed operational sensor network.',mechanism:'Attach low-cost vibration sensing to washers/dryers, learn machine-state signatures, and correlate them with linen-flow events to detect jams, abnormal cycles, under-loading, and timing anomalies without instrumenting every item.',whyNow:'Tiny sensors and edge classification are cheap enough for brownfield equipment.',audience:'Hotels, laundromats, industrial laundry operators',wedge:'Sites with aging equipment and no telemetry',strangeness:76,buildability:83,evidenceDebt:54,genes:['ambient sensing','brownfield telemetry','anomaly signatures','flow inference']}
+  ];
+
+  const genericTemplates=[
+    (A,B,C)=>({name:`${titleWord(A.title)} ${titleWord(B.title)} Buffer`,premise:`Use ${B.title.toLowerCase()} to selectively intervene in ${A.title.toLowerCase()} instead of treating every case the same.`,mechanism:`Observe ${A.title.toLowerCase()} as the pain signal, use ${B.title.toLowerCase()} as the mechanism, and let ${C?.title?.toLowerCase()||'a behavioral constraint'} determine when the system should remain invisible versus escalate.`,genes:['selective intervention','evidence gating','exception-only review']}),
+    (A,B,C)=>({name:`Ambient ${titleWord(A.title)} Mesh`,premise:`Turn an existing environmental signal into a sensor for a problem it was never designed to observe.`,mechanism:`Capture a passive signal from ${B.title.toLowerCase()}, correlate it with events around ${A.title.toLowerCase()}, then infer anomalies without instrumenting every object or user. ${C?`Use ${C.title.toLowerCase()} as a falsification constraint.`:''}`,genes:['ambient sensing','anomaly inference','brownfield instrumentation']}),
+    (A,B,C)=>({name:`Reversible ${titleWord(A.title)} Protocol`,premise:`Replace a permanent rule with a reversible, evidence-triggered protocol.`,mechanism:`Treat ${A.title.toLowerCase()} as a state that should be proven rather than assumed. Use ${B.title.toLowerCase()} as independent evidence and ${C?.title?.toLowerCase()||'time'} as the rollback boundary.`,genes:['reversible state','multi-signal consensus','time-bounded escalation']})
+  ];
+  function titleWord(s){return String(s).split(/\s+/).filter(Boolean).map(x=>x[0].toUpperCase()+x.slice(1)).slice(0,2).join(' ')}
+
+  function extinctionPenalty(candidate){let max=0;for(const e of state.extinctions||[])max=Math.max(max,jaccard(candidate.name+' '+candidate.mechanism,e.name+' '+e.reason));return Math.round(max*35)}
+
+  function createCollision(atomIds,mode='manual'){
+    const atoms=atomIds.map(id=>state.atoms.find(a=>a.id===id)).filter(Boolean);
+    if(atoms.length<2){toast('LOCK AT LEAST TWO ATOMS');return;}
+    const coll={id:uid('col'),atomIds:atoms.map(a=>a.id),mode,createdAt:now()};state.collisions.push(coll);
+    const demo=baseAtoms.every(b=>atoms.some(a=>a.title===b.title));
+    let drafts;
+    if(demo) drafts=demoConcepts(); else {
+      const ranked=[...atoms].sort((a,b)=>b.entropy-a.entropy);
+      drafts=genericTemplates.map((fn,i)=>fn(ranked[i%ranked.length],ranked[(i+1)%ranked.length],ranked[(i+2)%ranked.length]));
+    }
+    const concepts=drafts.map((d,i)=>{
+      const evidenceAtomCount=atoms.filter(a=>a.provenance==='external').length;
+      const c={id:uid('concept'),collisionId:coll.id,atomIds:atoms.map(a=>a.id),name:d.name,premise:d.premise,mechanism:d.mechanism,whyNow:d.whyNow||`The enabling mechanism “${atoms[(i+1)%atoms.length].title}” is available now, while the pain signal remains unresolved.`,audience:d.audience||`Operators experiencing ${atoms[0].title.toLowerCase()}`,wedge:d.wedge||`Small teams that can run a bounded pilot`,strangeness:d.strangeness??clamp(58+Math.round(atoms.reduce((s,a)=>s+a.entropy,0)/atoms.length/3)+i*5),buildability:d.buildability??clamp(80-i*7),evidenceDebt:d.evidenceDebt??clamp(78-evidenceAtomCount*9+i*2),genes:d.genes||[],status:'candidate',origin:mode,createdAt:now()};
+      c.extinctionPenalty=extinctionPenalty(c); c.lineage=atoms.map(a=>({atomId:a.id,title:a.title,provenance:a.provenance})); return c;
+    });
+    state.concepts.push(...concepts);
+    state.nodes.push({id:coll.id,type:'collision',label:mode==='zero-origin'?'ZERO ORIGIN':'COLLISION',status:'active',parentIds:atoms.map(a=>a.id),data:{mode},createdAt:now()});
+    atoms.forEach(a=>{if(!state.nodes.some(n=>n.id===a.id))state.nodes.push({id:a.id,type:'atom',label:a.title,status:'active',parentIds:[],data:{source:a.sourceType},createdAt:a.createdAt})});
+    concepts.forEach(c=>state.nodes.push({id:c.id,type:'concept',label:c.name,status:'active',parentIds:[coll.id],data:{premise:c.premise},createdAt:now()}));
+    save();renderConcepts(concepts);renderEvolution();return concepts;
+  }
+
+  function renderConcepts(concepts){
+    const sec=document.getElementById('collisionSection');sec.classList.remove('hidden');
+    const grid=document.getElementById('conceptGrid');grid.innerHTML=concepts.map(c=>`<article class="concept-card"><span class="badge cyan">LOCAL SYNTHESIS</span><h3>${esc(c.name)}</h3><div class="premise">${esc(c.premise)}</div><dl><dt>MECHANISM</dt><dd>${esc(c.mechanism)}</dd><dt>WHY NOW</dt><dd>${esc(c.whyNow)}</dd><dt>WHO CARES</dt><dd>${esc(c.audience)}</dd><dt>FIRST WEDGE</dt><dd>${esc(c.wedge)}</dd></dl>${meter('STRANGENESS',c.strangeness,'')}${meter('BUILDABILITY',c.buildability,'lime')}${meter('EVIDENCE DEBT',c.evidenceDebt,'danger')}<div class="lineage">${c.lineage.map(x=>`<span class="chip">${esc(x.title)}</span>`).join('')}</div>${c.extinctionPenalty?`<div class="badge red">EXTINCTION SIMILARITY -${c.extinctionPenalty}</div>`:''}<button class="danger-outline full attackBtn" data-id="${c.id}">ATTACK THIS IDEA</button></article>`).join('');
+    grid.querySelectorAll('.attackBtn').forEach(b=>b.onclick=()=>attackConcept(b.dataset.id));sec.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  function meter(label,val,cls){return `<div class="meter ${cls}"><div class="meter-top"><span>${label}</span><b>${val}</b></div><div class="meter-bar"><i style="width:${val}%"></i></div></div>`}
+
+  function generateAttack(c){
+    const existing=state.attacks.find(a=>a.conceptId===c.id);if(existing)return existing;
+    const external=c.atomIds.map(id=>state.atoms.find(a=>a.id===id)).filter(a=>a?.provenance==='external').length;
+    const score=clamp(Math.round((c.buildability*0.38)+(c.strangeness*0.16)+((100-c.evidenceDebt)*0.32)+(external*4)-(c.extinctionPenalty||0)),18,91);
+    const verdict=score>=66?'SPAWN':score>=43?'MUTATE':'KILL';
+    const a={id:uid('atk'),conceptId:c.id,adversaries:[
+      ['THE SKEPTIC',`The pain may be real but users may not care enough to change behavior or budget. The first test must measure willingness to act, not stated interest.`],
+      ['THE ENGINEER',`The inferred signal can drift, correlate for the wrong reason, or fail at edge cases. Prove the mechanism with deliberately ugly data before building a platform.`],
+      ['THE LAWYER',`Any workflow that changes charges, access, or treatment based on inferred behavior creates privacy, disclosure, contractual, and dispute-handling obligations.`],
+      ['THE COPYCAT',`If the value lives only in orchestration, incumbents can reproduce features. The defensible layer must become proprietary evidence, integration depth, or mechanism know-how.`],
+      ['THE ACCOUNTANT',`Integration, false positives, support, and exception handling can erase savings. Unit economics need to work at the smallest viable customer.`]
+    ],fatalAssumptions:[`The target user experiences ${c.name} as a costly enough problem to change workflow.`,`The proposed mechanism produces a signal better than a cheap human workaround.`],testableAssumptions:[`At least 3 of 10 target users will agree to a real pilot or equivalent commitment.`,`A low-fidelity test can separate true events from noise above a predetermined threshold.`],unknowns:[`Baseline loss/error rate in the wedge market`,`False-positive tolerance`,`Implementation burden inside existing operations`],survivalScore:score,verdict,createdAt:now()};
+    state.attacks.push(a);c.status=verdict.toLowerCase();const node=state.nodes.find(n=>n.id===c.id);if(node)node.status=verdict==='KILL'?'killed':verdict==='MUTATE'?'mutated':'survived';save();return a;
+  }
+
+  function attackConcept(id){const c=state.concepts.find(x=>x.id===id);if(!c)return;state.ui.selectedConceptId=id;const a=generateAttack(c);document.getElementById('attackSection').classList.remove('hidden');document.getElementById('attackTitle').textContent=c.name;document.getElementById('attackContent').innerHTML=`<div class="attack-board">${a.adversaries.map(([n,t])=>`<div class="adversary"><b>${n}</b><p>${esc(t)}</p></div>`).join('')}</div><div class="attack-summary"><div><h4>FATAL ASSUMPTIONS</h4><ul>${a.fatalAssumptions.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div><h4>CHEAP-TEST ASSUMPTIONS</h4><ul>${a.testableAssumptions.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div><h4>RESEARCH UNKNOWNS</h4><ul>${a.unknowns.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div class="survival"><h4>SURVIVAL</h4><strong>${a.survivalScore}</strong><span class="badge ${a.verdict==='KILL'?'red':a.verdict==='MUTATE'?'amber':'lime'}">${a.verdict}</span></div></div><div class="verdict-bar"><strong>MANUAL VERDICT OVERRIDE</strong><button class="verdict-btn kill" data-v="KILL">KILL</button><button class="verdict-btn mutate" data-v="MUTATE">MUTATE</button><button class="verdict-btn spawn" data-v="SPAWN">SPAWN</button></div><div id="forgeMount"></div>`;
+    document.querySelectorAll('.verdict-btn').forEach(b=>b.onclick=()=>applyVerdict(c,a,b.dataset.v));document.getElementById('attackSection').scrollIntoView({behavior:'smooth'});
+  }
+
+  function applyVerdict(c,a,v){a.verdict=v;c.status=v.toLowerCase();const n=state.nodes.find(x=>x.id===c.id);if(n)n.status=v==='KILL'?'killed':v==='MUTATE'?'mutated':'survived';
+    if(v==='KILL'){state.extinctions.push({id:uid('ext'),conceptId:c.id,name:c.name,reason:a.fatalAssumptions.join(' | '),createdAt:now()});state.nodes.push({id:uid('dead'),type:'result',label:'BRANCH TERMINATED',status:'killed',parentIds:[c.id],data:{reason:a.fatalAssumptions[0]},createdAt:now()});toast('BRANCH TERMINATED / EXTINCTION MEMORY UPDATED');}
+    if(v==='MUTATE'){const child=mutateConcept(c,'Tribunal forced narrower scope and cheaper evidence boundary.');state.nodes.push({id:child.id,type:'concept',label:child.name,status:'mutated',parentIds:[c.id],data:{mutation:child.mutationReason},createdAt:now()});toast('MUTATION COMMITTED');}
+    if(v==='SPAWN'){mountExperimentForm(c,a)} save();renderEvolution();renderAtoms();}
+
+  function mutateConcept(c,reason){const child={...c,id:uid('concept'),name:`${c.name} / M1`,premise:`Mutation: ${c.premise}`,mechanism:`Narrow the mechanism to one observable event and one reversible intervention. ${c.mechanism}`,strangeness:clamp(c.strangeness-8),buildability:clamp(c.buildability+9),evidenceDebt:clamp(c.evidenceDebt-7),status:'mutated',mutationReason:reason,createdAt:now(),genes:[...new Set([...(c.genes||[]),'narrow-scope mutation'])]};state.concepts.push(child);return child}
+
+  function experimentDraft(c){const budget=Number(document.getElementById('realityBudget')?.value||state.settings.realityBudget||100),time=document.getElementById('timeBudget')?.value||state.settings.timeBudget||'48 hours';return {id:uid('exp'),conceptId:c.id,name:`${c.name} — Reality Test`,type:'Concierge Test',hypothesis:`If ${c.wedge.toLowerCase()} experiences this problem strongly enough, at least 30% of qualified test participants will take a costly action (pilot, deposit, workflow change, or equivalent) when shown the mechanism.`,cheapestTest:`Recruit 10 qualified operators. Demonstrate a manual version of the mechanism using existing tools and simulated signals. Ask for a real commitment, not an opinion.`,artifact:'Interactive Mock + manual concierge workflow',audience:c.wedge,successThreshold:'≥3/10 qualified participants take a real commitment AND mechanism reaches ≥80% precision on a small labeled sample.',failureThreshold:'≤1/10 commits OR mechanism precision <60% after two tuning passes.',maxBudget:`$${budget}`,maxTime:time,dontBuild:'Do not build authentication, billing, native apps, hardware enclosures, generalized integrations, or automated enforcement.',instrumentation:'Track qualified conversations, commitment rate, time-to-value, false positives, false negatives, operator minutes saved, and objections by category.',nextMutation:'If demand is strong but inference fails, keep the workflow and replace the sensing mechanism. If inference works but demand fails, move the mechanism DNA to a higher-cost adjacent problem.',status:'Drafted',resultNotes:'',metrics:'',decision:'',createdAt:now()}}
+
+  function mountExperimentForm(c,a){const e=experimentDraft(c);document.getElementById('forgeMount').innerHTML=`<div class="panel"><div class="panel-head"><div><div class="eyebrow">04 / FORGE</div><h2>SPAWN EXPERIMENT</h2></div><span class="badge lime">REALITY BUDGET</span></div><div class="experiment-form">${field('Hypothesis','hypothesis',e.hypothesis,true)}${field('Cheapest credible test','cheapestTest',e.cheapestTest,true)}${field('Artifact','artifact',e.artifact)}${field('Audience / sample','audience',e.audience)}${field('Success threshold','successThreshold',e.successThreshold,true)}${field('Failure threshold','failureThreshold',e.failureThreshold,true)}${field('Max budget','maxBudget',e.maxBudget)}${field('Max time','maxTime',e.maxTime)}${field('What NOT to build','dontBuild',e.dontBuild,true)}${field('Instrumentation','instrumentation',e.instrumentation,true)}${field('Next mutation if failed','nextMutation',e.nextMutation,true)}</div><button id="saveExperimentBtn" class="primary big full">COMMIT EXPERIMENT TO LEDGER</button></div>`;
+    document.getElementById('saveExperimentBtn').onclick=()=>{document.querySelectorAll('#forgeMount [data-f]').forEach(x=>e[x.dataset.f]=x.value);state.experiments.push(e);state.nodes.push({id:e.id,type:'experiment',label:e.name,status:'active',parentIds:[c.id],data:{hypothesis:e.hypothesis},createdAt:now()});learnGenes(c);save();renderExperiments();renderEvolution();toast('EXPERIMENT COMMITTED / REALITY CHECK ARMED')};
+  }
+  function field(label,key,val,wide=false){return `<label class="${wide?'wide':''}">${esc(label)}${wide?`<textarea data-f="${key}" rows="3">${esc(val)}</textarea>`:`<input class="field-input" data-f="${key}" value="${esc(val)}" />`}</label>`}
+  function learnGenes(c){for(const g of c.genes||[]){const existing=state.genes.find(x=>x.name===g);if(existing){existing.uses++;existing.lastUsed=now()}else state.genes.push({id:uid('gene'),name:g,uses:1,originConceptId:c.id,lastUsed:now()})}}
+
+  function renderAtoms(){
+    const q=(document.getElementById('atomFilter')?.value||'').toLowerCase(),sf=document.getElementById('atomSourceFilter')?.value||'all';
+    const list=state.atoms.filter(a=>(!q||(a.title+' '+a.description+' '+a.tags.join(' ')+' '+a.sourceType).toLowerCase().includes(q))&&(sf==='all'||a.sourceType===sf));
+    const wrap=document.getElementById('atomLibrary');if(!wrap)return;wrap.innerHTML=list.map(a=>`<article class="atom-card ${a.pinned?'pinned':''}"><div class="atom-actions"><button class="icon-btn pinAtom" data-id="${a.id}" title="pin">${a.pinned?'◆':'◇'}</button><button class="icon-btn delAtom" data-id="${a.id}" title="delete">×</button></div><span class="badge ${a.provenance==='external'?'lime':a.provenance==='exploratory'?'amber':'cyan'}">${esc(a.sourceType)}</span><h3>${esc(a.title)}</h3><p>${esc(a.description||'No description')}</p><div class="entropy">ENTROPY ${a.entropy} / 100</div>${a.sourceUrl?`<a href="${esc(a.sourceUrl)}" target="_blank" rel="noopener" class="source-meta">SOURCE ↗</a>`:''}</article>`).join('')||'<div class="empty-state">NO ATOMS MATCH FILTER.</div>';
+    wrap.querySelectorAll('.pinAtom').forEach(b=>b.onclick=()=>{const a=state.atoms.find(x=>x.id===b.dataset.id);a.pinned=!a.pinned;save();renderAtoms();renderReactor()});
+    wrap.querySelectorAll('.delAtom').forEach(b=>b.onclick=()=>{state.atoms=state.atoms.filter(x=>x.id!==b.dataset.id);save();renderAtoms();renderReactor()});
+    const ext=document.getElementById('extinctionList');if(ext)ext.innerHTML=state.extinctions.length?state.extinctions.slice().reverse().map(e=>`<div class="extinction-row"><div><h4>${esc(e.name)}</h4><p>${esc(e.reason)}</p></div><span class="badge red">BRANCH TERMINATED</span></div>`).join(''):'<div class="empty-state">NO EXTINCTIONS YET.</div>';
+    document.getElementById('atomCountBadge').textContent=`${state.atoms.length} ATOMS`;
+  }
+
+  function renderExperiments(){const w=document.getElementById('experimentLedger');if(!w)return;w.innerHTML=state.experiments.length?state.experiments.slice().reverse().map(e=>`<article class="experiment-card"><div class="experiment-head"><div><div class="experiment-meta">${esc(e.type||'EXPERIMENT')} / ${new Date(e.createdAt).toLocaleString()}</div><h3>${esc(e.name)}</h3></div><span class="badge ${e.status==='Passed'?'lime':e.status==='Failed'?'red':e.status==='Inconclusive'?'amber':'cyan'}">${esc(e.status.toUpperCase())}</span></div><div class="experiment-grid"><div><b>HYPOTHESIS</b><span>${esc(e.hypothesis)}</span></div><div><b>SUCCESS</b><span>${esc(e.successThreshold)}</span></div><div><b>FAILURE</b><span>${esc(e.failureThreshold)}</span></div><div><b>BUDGET</b><span>${esc(e.maxBudget)}</span></div><div><b>TIME CAP</b><span>${esc(e.maxTime)}</span></div><div><b>DON'T BUILD</b><span>${esc(e.dontBuild)}</span></div></div><div class="status-controls">${['Drafted','Running','Passed','Failed','Inconclusive'].map(s=>`<button data-id="${e.id}" data-status="${s}" class="${e.status===s?'active':''}">${s.toUpperCase()}</button>`).join('')}</div></article>`).join(''):'<div class="empty-state">NO EXPERIMENTS. SPAWN ONE FROM THE TRIBUNAL.</div>';
+    w.querySelectorAll('.status-controls button').forEach(b=>b.onclick=()=>setExperimentStatus(b.dataset.id,b.dataset.status));document.getElementById('experimentCountBadge').textContent=`${state.experiments.length} EXPERIMENTS`}
+  function setExperimentStatus(id,status){const e=state.experiments.find(x=>x.id===id);if(!e)return;e.status=status;let n=state.nodes.find(x=>x.id===id);if(n)n.status=status==='Passed'?'survived':status==='Failed'?'killed':status==='Inconclusive'?'mutated':'active';if(status==='Failed'&&!state.nodes.some(x=>x.parentIds?.includes(id)&&x.type==='mutation')){const c=state.concepts.find(x=>x.id===e.conceptId);const m=mutateConcept(c,'Experiment failed; preserving mechanism DNA while changing the weakest assumption.');state.nodes.push({id:uid('res'),type:'result',label:'FAILED IN REALITY',status:'killed',parentIds:[id],data:{threshold:e.failureThreshold},createdAt:now()});state.nodes.push({id:m.id,type:'mutation',label:m.name,status:'mutated',parentIds:[id],data:{reason:m.mutationReason},createdAt:now()});toast('FAILURE RECORDED / MUTATION BRANCH GROWN')}if(status==='Passed'){state.nodes.push({id:uid('res'),type:'result',label:'SURVIVED REALITY',status:'survived',parentIds:[id],data:{threshold:e.successThreshold},createdAt:now()});toast('SURVIVAL RECORDED / GENE WEIGHT INCREASED')}save();renderExperiments();renderEvolution()}
+
+  function renderEvolution(){const svg=document.getElementById('evolutionSvg');if(!svg)return;const nodes=state.nodes.slice(-40);if(!nodes.length){svg.innerHTML='<text x="50%" y="50%" text-anchor="middle" fill="#58747b" font-family="monospace" font-size="16">NO EVOLUTION HISTORY YET</text>';renderGenes();return}
+    const byId=Object.fromEntries(nodes.map(n=>[n.id,n]));const depth={};function d(n,seen=new Set()){if(depth[n.id]!=null)return depth[n.id];if(seen.has(n.id))return 0;seen.add(n.id);const ps=(n.parentIds||[]).map(id=>byId[id]).filter(Boolean);return depth[n.id]=ps.length?Math.max(...ps.map(p=>d(p,new Set(seen))))+1:0}nodes.forEach(n=>d(n));const levels={};nodes.forEach(n=>(levels[depth[n.id]]??=[]).push(n));const pos={};Object.entries(levels).forEach(([lv,arr])=>arr.forEach((n,i)=>pos[n.id]={x:90+Number(lv)*205,y:70+(i+1)*(560/(arr.length+1))}));let html='';for(const n of nodes){for(const p of n.parentIds||[]){if(pos[p]&&pos[n.id])html+=`<path d="M${pos[p].x+75},${pos[p].y} C${pos[p].x+130},${pos[p].y} ${pos[n.id].x-55},${pos[n.id].y} ${pos[n.id].x},${pos[n.id].y}" fill="none" stroke="#173841" stroke-width="1.5"/>`}}for(const n of nodes){const p=pos[n.id],color=n.status==='killed'?'#ff5c67':n.status==='survived'?'#b6ff4a':n.status==='mutated'?'#ffbd59':'#55f2d0';html+=`<g class="evo-node" data-id="${n.id}" style="cursor:pointer"><rect x="${p.x}" y="${p.y-22}" width="155" height="44" rx="4" fill="#071117" stroke="${color}"/><circle cx="${p.x+10}" cy="${p.y}" r="3.5" fill="${color}"/><text x="${p.x+20}" y="${p.y-3}" fill="#d7e9e6" font-family="monospace" font-size="8">${escSvg(n.type.toUpperCase())}</text><text x="${p.x+20}" y="${p.y+10}" fill="#6e8e95" font-family="monospace" font-size="7">${escSvg(n.label.slice(0,22))}</text></g>`}svg.innerHTML=html;svg.querySelectorAll('.evo-node').forEach(g=>g.onclick=()=>inspectNode(g.dataset.id));renderGenes()}
+  function escSvg(s){return String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+  function inspectNode(id){const n=state.nodes.find(x=>x.id===id);if(!n)return;state.ui.selectedNodeId=id;document.getElementById('nodeInspector').innerHTML=`<div class="eyebrow">${esc(n.type.toUpperCase())} / ${esc(n.status.toUpperCase())}</div><h3>${esc(n.label)}</h3><pre>${esc(JSON.stringify(n.data||{},null,2))}</pre><div class="source-meta">CREATED ${new Date(n.createdAt).toLocaleString()}</div>`;save()}
+  function renderGenes(){const w=document.getElementById('geneGrid');if(!w)return;w.innerHTML=state.genes.length?state.genes.sort((a,b)=>b.uses-a.uses).map(g=>`<div class="gene"><b>${esc(g.name.toUpperCase())}</b><small>USES ${g.uses} / LAST ${new Date(g.lastUsed).toLocaleDateString()}</small></div>`).join(''):'<div class="empty-state">GENES APPEAR AFTER EXPERIMENTS ARE SPAWNED.</div>'}
+
+  async function sourceFetch(source,query){const q=encodeURIComponent(query||'automation failure');let url,normalizer;
+    if(source==='github'){url=`https://api.github.com/search/repositories?q=${q}+created:%3E2026-01-01&sort=updated&order=desc&per_page=6`;normalizer=j=>(j.items||[]).map(x=>({title:x.full_name,description:x.description||`GitHub repository with ${x.stargazers_count} stars`,sourceType:'GitHub Repository',sourceUrl:x.html_url,type:'Repository',entropy:clamp(50+Math.round(Math.log10(1+x.stargazers_count)*14)),meta:{stars:x.stargazers_count,updated:x.updated_at}}))}
+    if(source==='openalex'){url=`https://api.openalex.org/works?search=${q}&filter=from_publication_date:2026-01-01&per-page=6`;normalizer=j=>(j.results||[]).map(x=>({title:x.display_name,description:`${x.type||'research'} · cited by ${x.cited_by_count||0}`,sourceType:'Research Paper',sourceUrl:x.doi||x.id,type:'Research',entropy:clamp(62+Math.min(30,x.cited_by_count||0)),meta:{citedBy:x.cited_by_count,year:x.publication_year}}))}
+    if(source==='fedreg'){url=`https://www.federalregister.gov/api/v1/documents.json?per_page=6&order=newest&conditions%5Bterm%5D=${q}`;normalizer=j=>(j.results||[]).map(x=>({title:x.title,description:`${x.type||'Federal Register document'} · ${x.agencies?.map(a=>a.name).join(', ')||''}`,sourceType:'Regulation',sourceUrl:x.html_url,type:'Constraint',entropy:82,meta:{date:x.publication_date,documentNumber:x.document_number}}))}
+    if(source==='cfpb'){url=`https://www.consumerfinance.gov/data-research/consumer-complaints/search/api/v1/?field=all&size=6&from=0&search_term=${q}`;normalizer=j=>((j.hits&&j.hits.hits)||[]).map(h=>{const x=h._source||{};return {title:`${x.product||'Consumer complaint'} — ${x.issue||'issue'}`,description:x.consumer_complaint_narrative||x.sub_issue||'Published consumer complaint signal',sourceType:'Customer Complaint',sourceUrl:'https://www.consumerfinance.gov/data-research/consumer-complaints/',type:'Problem',entropy:84,meta:{company:x.company,state:x.state,date:x.date_received}}})}
+    if(!url)throw new Error('Unknown source');const res=await fetch(url,{headers:{'Accept':'application/json'}});if(!res.ok)throw new Error(`${res.status} ${res.statusText}`);return normalizer(await res.json())}
+
+  function renderSourceCards(items,source){const feed=document.getElementById('sourceFeed');feed.innerHTML=items.map((x,i)=>`<div class="source-card"><button class="icon-btn ingestBtn" data-i="${i}">+ ATOM</button><div class="source-meta">EXTERNAL EVIDENCE / ${esc(x.sourceType)}</div><h4>${esc(x.title)}</h4><p>${esc((x.description||'').slice(0,240))}</p><a class="source-meta" href="${esc(x.sourceUrl)}" target="_blank" rel="noopener">PROVENANCE ↗</a></div>`).join('')||'<div class="empty-state">NO SIGNALS RETURNED.</div>';feed.querySelectorAll('.ingestBtn').forEach(b=>b.onclick=()=>{const x=items[Number(b.dataset.i)];addAtom({...x,provenance:'external',tags:['live',source]});toast('EXTERNAL SIGNAL INGESTED / ATOM LOCKED')})}
+  async function runSource(source,query){const btn=[...document.querySelectorAll('.sourceBtn')].find(b=>b.dataset.source===source);if(btn)btn.textContent='SCANNING…';document.getElementById('sensoriumState').textContent='ACQUIRING SIGNAL';try{const items=await sourceFetch(source,query);renderSourceCards(items,source);document.getElementById('sensoriumState').textContent=`${items.length} SIGNALS`;return items}catch(e){document.getElementById('sourceFeed').innerHTML=`<div class="source-card"><div class="source-meta">SOURCE UNAVAILABLE</div><h4>${esc(source.toUpperCase())}</h4><p>${esc(e.message)}. The adapter remains configured; network/CORS/rate limits may block this browser session.</p></div>`;document.getElementById('sensoriumState').textContent='SOURCE DEGRADED';return[]}finally{if(btn)btn.textContent=source==='github'?'GITHUB':source==='openalex'?'OPENALEX':source==='fedreg'?'FEDERAL REGISTER':'CFPB COMPLAINTS'}}
+
+  async function acquireSignals(){const btn=document.getElementById('acquireSignalsBtn');btn.disabled=true;btn.textContent='ACQUIRING…';const jobs=[['github','sensor automation'],['openalex','low cost sensing anomaly detection'],['fedreg','automation safety'],['cfpb','fees dispute']];let all=[];for(const [s,q] of jobs){const xs=await runSource(s,q);all.push(...xs.slice(0,2));}
+    const existingTitles=new Set(state.atoms.map(a=>a.title));all.filter(x=>!existingTitles.has(x.title)).slice(0,8).forEach(x=>addAtom({...x,provenance:'external',tags:['zero-origin','live'],pinned:true}));btn.disabled=false;btn.textContent='ACQUIRE LIVE SIGNALS';toast(`${all.length} LIVE SIGNALS ACQUIRED`);return all}
+
+  async function zeroOrigin(){const out=document.getElementById('zeroOriginOutput');out.classList.remove('hidden');out.innerHTML='<div class="empty-state">ZERO ORIGIN / SEARCHING CONTRADICTIONS…</div>';let externals=state.atoms.filter(a=>a.provenance==='external');if(externals.length<3){await acquireSignals();externals=state.atoms.filter(a=>a.provenance==='external')}
+    const pains=externals.filter(a=>['Problem','Constraint','Human Behavior'].includes(a.type)||['Customer Complaint','Regulation'].includes(a.sourceType));const mechs=externals.filter(a=>['Technology','Research','Repository','Environment'].includes(a.type)||['Research Paper','GitHub Repository'].includes(a.sourceType));
+    const poolA=pains.length?pains:state.atoms.filter(a=>a.type==='Problem');const poolB=mechs.length?mechs:state.atoms.filter(a=>a.type!=='Problem');if(!poolA.length||!poolB.length){out.innerHTML='<div class="empty-state">INSUFFICIENT DIVERSE SIGNALS. INGEST MORE ATOMS.</div>';return}
+    let best=null;for(const a of poolA){for(const b of poolB){if(a.id===b.id)continue;const dist=100-Math.round(jaccard(a.title+' '+a.description,b.title+' '+b.description)*100);const score=(a.entropy+b.entropy+dist)/3;if(!best||score>best.score)best={a,b,score,dist}}}
+    const extra=state.atoms.filter(x=>x.id!==best.a.id&&x.id!==best.b.id).sort((a,b)=>b.entropy-a.entropy)[0];const concepts=createCollision([best.a.id,best.b.id,...(extra?[extra.id]:[])],'zero-origin');const ranked=concepts.map(c=>({c,a:generateAttack(c)})).sort((x,y)=>y.a.survivalScore-x.a.survivalScore);const win=ranked[0];
+    if(win.a.survivalScore<45){out.innerHTML=`<div class="badge red">NO SURVIVOR</div><p class="muted">The best collision scored ${win.a.survivalScore}. ZERO ORIGIN refuses to manufacture confidence.</p>`;return}
+    win.c.status='survived';state.ui.selectedConceptId=win.c.id;save();out.innerHTML=`<div class="eyebrow">ZERO ORIGIN / SURVIVOR</div><h2>${esc(win.c.name)}</h2><p>${esc(win.c.premise)}</p><div class="attack-summary"><div><h4>CONTRADICTION</h4><p class="muted">${esc(best.a.title)} remains costly or unresolved while ${esc(best.b.title)} exists as an enabling mechanism in a distant context.</p></div><div><h4>CROSS-DOMAIN DISTANCE</h4><strong style="font:34px var(--mono);color:var(--cyan)">${best.dist}</strong></div><div><h4>SURVIVAL</h4><strong style="font:34px var(--mono);color:var(--lime)">${win.a.survivalScore}</strong></div><div><h4>EVIDENCE DEBT</h4><strong style="font:34px var(--mono);color:var(--red)">${win.c.evidenceDebt}</strong></div></div><div class="lineage">${win.c.lineage.map(x=>`<span class="chip">${esc(x.title)}</span>`).join('')}</div><button id="zeroAttack" class="danger-outline">OPEN HOSTILE REVIEW</button>`;document.getElementById('zeroAttack').onclick=()=>attackConcept(win.c.id);toast('ZERO ORIGIN SURVIVOR ACQUIRED')}
+
+  function runProve(){const idea=document.getElementById('proveIdea').value.trim();if(!idea){toast('ENTER AN IDEA TO ATTACK');return}const overlap=Math.max(0,...state.extinctions.map(e=>jaccard(idea,e.name+' '+e.reason)));const specificity=clamp(words(idea).length*3,8,35);const score=clamp(63+specificity-Math.round(overlap*50)-rnd(12),20,88);const out=document.getElementById('proveOutput');const attacks=[['SKEPTIC','What costly behavior proves someone needs this now rather than merely liking the concept?'],['ENGINEER','Which single technical assumption can make the whole mechanism collapse?'],['LAWYER','What happens when the system is wrong and a user disputes the consequence?'],['COPYCAT','What part remains valuable after an incumbent copies the visible feature?'],['ACCOUNTANT','Does the smallest viable customer still generate positive contribution margin after support and exceptions?']];out.innerHTML=`<div class="eyebrow">HOSTILE REVIEW IN PROGRESS</div><h2>PROVE ME WRONG RESULT</h2><div class="attack-board">${attacks.map(x=>`<div class="adversary"><b>${x[0]}</b><p>${x[1]}</p></div>`).join('')}</div><h3>CHEAP KILL TESTS</h3><div class="kill-tests"><div class="kill-test"><b>10 MINUTES</b>Write the one irreversible behavior that proves demand. If you cannot name it, the idea is not testable yet.</div><div class="kill-test"><b>1 HOUR</b>Find 10 target users with the exact pain. Ask for a commitment that costs time, access, reputation, or money.</div><div class="kill-test"><b>$100</b>Build the narrowest fake-door or concierge version. Set the success threshold before traffic arrives.</div></div><div class="attack-summary"><div><h4>HIDDEN ASSUMPTION</h4><p class="muted">The target user values the outcome more than the switching and trust cost.</p></div><div><h4>DISPROVING DATA</h4><p class="muted">Qualified users repeatedly decline a real commitment even after understanding the value proposition.</p></div><div class="survival"><h4>SURVIVAL</h4><strong>${score}</strong></div><div><h4>EXTINCTION MATCH</h4><strong style="font:28px var(--mono);color:var(--red)">${Math.round(overlap*100)}%</strong></div></div>${score>=72?'<div class="hard-kill">◆ HARD TO KILL ◆</div>':'<div class="badge red">NOT YET HARD TO KILL</div>'}`}
+
+  function renderCounters(){const dead=state.extinctions.length;[['atomCountHero',state.atoms.length],['experimentCountHero',state.experiments.length],['deadCountHero',dead]].forEach(([id,v])=>{const e=document.getElementById(id);if(e)e.textContent=v});const m=document.getElementById('memoryLabel');if(m)m.textContent=`GENOME ${state.nodes.length}`}
+
+  function exportState(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`fold-zero-genome-${new Date().toISOString().slice(0,10)}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+  function importState(file){const r=new FileReader();r.onload=()=>{try{const s=JSON.parse(r.result);if(!s.atoms||!s.experiments)throw new Error('Invalid genome');state=s;save();renderAll();toast('GENOME IMPORTED')}catch(e){toast('IMPORT FAILED / INVALID GENOME')}};r.readAsText(file)}
+
+  function easter(){const e=document.getElementById('easter');e.classList.remove('show');void e.offsetWidth;e.classList.add('show')}
+  function blackSwan(){const wild=['fungal nutrient networks','airport baggage routing','ant colony stigmergy','stage magic misdirection','insurance underwriting','coral reef mutualism','MMORPG economies','prison commissary pricing'];const t=wild[rnd(wild.length)];addAtom({type:'Wildcard',title:t,description:'Black Swan injection for lateral exploration. This is not evidence.',sourceType:'Exploratory',tags:['black-swan'],entropy:96,provenance:'exploratory',pinned:true});const shell=document.getElementById('reactorShell');shell.classList.add('black-swan');setTimeout(()=>shell.classList.remove('black-swan'),800);toast('BLACK SWAN INJECTED / EXPLORATORY ONLY')}
+
+  function bind(){document.querySelectorAll('[data-route]').forEach(b=>b.onclick=()=>route(b.dataset.route));document.getElementById('brandBtn').onclick=()=>route('reactor');document.getElementById('addAtomBtn').onclick=()=>{const inp=document.getElementById('atomInput');if(inp.value.toLowerCase().trim()==='fold reality'){easter();inp.value='';return}const a=addAtom({type:document.getElementById('atomType').value,title:inp.value,sourceType:'User Observation',provenance:'user',pinned:true});if(a){inp.value='';toast('ATOM LOCKED')}};document.getElementById('atomInput').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('addAtomBtn').click();if((e.target.value+e.key).toLowerCase().includes('fold reality'))setTimeout(()=>{if(e.target.value.toLowerCase().includes('fold reality')){easter();e.target.value=''}},0)});document.getElementById('blackSwanBtn').onclick=blackSwan;document.getElementById('collideBtn').onclick=()=>createCollision(state.atoms.filter(a=>a.pinned).slice(-5).map(a=>a.id),'manual');document.querySelectorAll('.sourceBtn').forEach(b=>b.onclick=()=>runSource(b.dataset.source,document.getElementById('sourceQuery').value));document.getElementById('acquireSignalsBtn').onclick=acquireSignals;document.getElementById('zeroOriginBtn').onclick=zeroOrigin;document.getElementById('proveBtn').onclick=runProve;document.getElementById('atomFilter').oninput=renderAtoms;document.getElementById('atomSourceFilter').onchange=renderAtoms;document.getElementById('exportBtn').onclick=exportState;document.getElementById('importFile').onchange=e=>e.target.files?.[0]&&importState(e.target.files[0]);document.getElementById('realityBudget').onchange=e=>{state.settings.realityBudget=Number(e.target.value);save()};document.getElementById('timeBudget').onchange=e=>{state.settings.timeBudget=e.target.value;save()};document.getElementById('searchRadius').onchange=e=>{state.settings.searchRadius=e.target.value;save()}}
+
+  function renderAll(){document.getElementById('realityBudget').value=state.settings?.realityBudget||100;document.getElementById('timeBudget').value=state.settings?.timeBudget||'48 hours';document.getElementById('searchRadius').value=state.settings?.searchRadius||'cross-domain';renderReactor();renderAtoms();renderExperiments();renderEvolution();renderCounters();route(state.ui?.route||'reactor')}
+  function init(){bind();renderAll();document.getElementById('clockLabel').textContent=new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});setInterval(()=>document.getElementById('clockLabel').textContent=new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}),30000);}
+  return {init};
+})();
+document.addEventListener('DOMContentLoaded',FZ.init);
+
+</script>
+<script>
+if ("serviceWorker" in navigator) window.addEventListener("load",()=>navigator.serviceWorker.register("/service-worker.js").catch(()=>{}));
+</script>
+</body>
+</html>
