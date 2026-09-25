@@ -2,16 +2,17 @@
   "name": "FOLD ZERO — Reality Evolution Engine",
   "short_name": "FOLD ZERO",
   "description": "Make the non-obvious testable.",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#05090D",
   "theme_color": "#05090D",
   "icons": [
     {
-      "src": "/icon.svg",
+      "src": "icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
     }
-  ]
+  ],
+  "scope": "./"
 }
